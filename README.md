@@ -167,7 +167,57 @@ Przykładowy przebieg (logika, **nie gotowy kod**):
 Jeśli display == "none" -> zmień na "block"
 Jeśli display == "block" -> zmień na "none"
 ```
+Przykład gotowego rozwiązania
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ukrywanie i pokazywanie bloków – wersja z przełączaniem</title>
+  <style>
+    #blok {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 100px; /* wyśrodkowanie tekstu w pionie */
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
 
+  <h1>Przykład funkcji „Przełącz” (toggle)</h1>
+
+  <!-- Jeden przycisk do przełączania widoczności -->
+  <button onclick="przelaczBlok()">Przełącz blok</button>
+
+  <!-- Blok do ukrywania/pokazywania -->
+  <div id="blok">
+    Jestem blokiem!
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function przelaczBlok() {
+      // Pobierz element
+      const blok = document.getElementById("blok");
+
+      // Sprawdź obecny styl display
+      if (blok.style.display === "none") {
+        // Jeśli jest ukryty (display=none), to go pokaż
+        blok.style.display = "block";
+      } else {
+        // W przeciwnym wypadku (domyślnie "block") - ukryj
+        blok.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+```
 ---
 
 ### Ćwiczenie 3: Ukrywanie/pokazywanie wielu bloków
